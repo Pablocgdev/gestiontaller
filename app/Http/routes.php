@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix'=>'cars'], function(){
+	Route::get('view/{car?}', function($car = "NULL"){
+		echo $car;
+	});
+});

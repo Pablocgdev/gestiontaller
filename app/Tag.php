@@ -10,6 +10,6 @@ class Tag extends Model
     protected $fillable=['name'];
 
     public function cars(){
-    	return $this.belongsToMany('App\Car');
+    	return $this.belongsToMany('App\Car')->withTimestamps();
     }
 }
