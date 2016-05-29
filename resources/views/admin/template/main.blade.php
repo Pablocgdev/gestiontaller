@@ -7,7 +7,7 @@
 </head>
 <body>	
 	@include('admin.template.partials.nav')
-
+	<h3 class"panel-title">@yield('title')</h3>
 	<section>
 		@include('flash::message')
 		@yield('content')

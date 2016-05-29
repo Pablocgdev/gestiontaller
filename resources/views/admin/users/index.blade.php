@@ -25,7 +25,10 @@
 						<span class="label label-primary"> {{ $user->type }}</span>
 					@endif
 					</td>
-					<td><a href="" class="btn btn-danger glyphicon glyphicon-remove"> <a href="" class="btn btn-success glyphicon glyphicon-pencil"></a></a></td>
+					<td>
+					<a href="{{ route('admin.users.edit', $user->id)}}" class="btn btn-success glyphicon glyphicon-pencil"></a>
+					<a href="{{ route('admin.users.destroy', $user->id) }}" onclick="return confirm('Seguro que desea eliminar el usuario?')" class="btn btn-danger glyphicon glyphicon-remove-circle"> </a>
+					</td>
 				</tr>
 			@endforeach
 		</tbody>
