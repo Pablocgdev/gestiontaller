@@ -15,11 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix'=>'cars'], function(){
+Route::group(['prefix' => 'admin'], function() {
+    
+	Route::resource('users', 'UsersController');
 
-	Route::get('view/{id}',[
-		'uses' => 'TestController@view',
-		'as' => 'carsView'
-		]);
-
-}); 
+});
