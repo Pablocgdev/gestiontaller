@@ -25,7 +25,7 @@
 						<span class="label label-primary"> {{ $user->type }}</span>
 					@endif
 					</td>
-					<td><a href="" class="btn btn-danger"> <a href="" class="btn btn-success"></a></a></td>
+					<td><a href="" class="btn btn-danger glyphicon glyphicon-remove"> <a href="" class="btn btn-success glyphicon glyphicon-pencil"></a></a></td>
 				</tr>
 			@endforeach
 		</tbody>
