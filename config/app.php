@@ -148,6 +148,14 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+
+        /*
+        * CUSTOM PROVIDERS
+        */
+        Collective\Html\HtmlServiceProvider::class,
+        Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
+
+
         /*
          * Application Service Providers...
          */
@@ -202,6 +210,11 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        /*
+        *   CUSTOM ALIASES
+        */
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
     ],
 
 ];
