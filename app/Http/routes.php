@@ -16,7 +16,10 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix'=>'cars'], function(){
-	Route::get('view/{car?}', function($car = "NULL"){
-		echo $car;
-	});
-});
+
+	Route::get('view/{id}',[
+		'uses' => 'TestController@view',
+		'as' => 'carsView'
+		]);
+
+}); 
