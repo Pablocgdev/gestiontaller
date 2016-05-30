@@ -10,6 +10,7 @@
 	<h3 class"panel-title">@yield('title')</h3>
 	<section>
 		@include('flash::message')
+		@include('admin.template.partials.errors')
 		@yield('content')
 	</section>
 
