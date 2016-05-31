@@ -24,4 +24,5 @@
 			@endforeach
 		</tbody>
 	</table>
+	{!! $categories->render() !!}
 @endsection

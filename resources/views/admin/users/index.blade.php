@@ -34,5 +34,4 @@
 		</tbody>
 	</table>
 	{!! $users->render() !!}
-
-@endsection('content')
+@endsection

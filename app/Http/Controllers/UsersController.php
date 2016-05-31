@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\User;
 use Laracasts\Flash\Flash;
@@ -17,7 +16,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('id', 'ASC')->paginate(5);
+        $users = User::orderBy('id', 'ASC')->paginate(4);
         return view('admin.users.index')->with('users', $users);
     }
 
