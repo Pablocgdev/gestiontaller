@@ -12,4 +12,11 @@ class Tag extends Model
     public function cars(){
     	return $this.belongsToMany('App\Car')->withTimestamps();
     }
+
+    public function scopeSearch($query, $name)
+    {
+    	
+    	return $query->where('name', 'LIKE' , "%$name%");
+
+    }
 }
