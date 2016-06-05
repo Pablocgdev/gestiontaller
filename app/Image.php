@@ -10,6 +10,6 @@ class Image extends Model
     protected $fillable = ['name' , 'car_id'];
 
     public function car(){
-    	return $this->belongsTo('App\Article');
+    	return $this->belongsTo('App\Car');
     }
 }

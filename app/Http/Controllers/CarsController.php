@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Tag;
 use App\Category;
+use App\Car;
+use App\Image;
+use Illuminate\Support\Facades\Redirect;
+use Laracasts\Flash\Flash;
 
 class CarsController extends Controller
 {
@@ -17,7 +21,7 @@ class CarsController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.cars.index');
     }
 
     /**
@@ -46,10 +50,26 @@ class CarsController extends Controller
      */
     public function store(Request $request)
     {
-        $file = $request->file('image');
-        $name = 'taller_' . time() . '.' . $file->getClientOriginalExtension();
-        $path = public_path() . '/images/cars/';
-        $file -> move($path, $name);
+        if ($request->file('image')){       
+            $file = $request->file('image');
+            $name = 'taller_' . time() . '.' . $file->getClientOriginalExtension();
+            $path = public_path() . '/images/cars/';
+            $file -> move($path, $name);
+            }
+
+            $car = new Car($request->all());
+            $car->user_id=\Auth::User()->id;
+            $car->save();
+
+            $car->tags()->sync($request->tags);
+            
+            $image = new Image();
+            $image->name = $name;
+            $image->car()->associate($car);
+            $image->save();
+
+            Flash::success('Se ha creado el vehículo ' . $car->title . ' de forma correcta.');
+            return redirect()->route('admin.cars.index');
     }
 
     /**
