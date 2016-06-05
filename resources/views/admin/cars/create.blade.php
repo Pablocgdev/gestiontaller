@@ -33,7 +33,7 @@
 
 		<div class="form-group">
 			{!! Form::label('tags', 'Tags') !!}
-			{!! Form::select('tags', $tags, null, ['class' => 'form-control','multiple', 'required', 'size=5']) !!}
+			{!! Form::select('tags[]', $tags, null, ['tags'=> 'id', 'class' => 'form-control','multiple', 'required', 'size=5']) !!}
 		</div>
 
 		<div class="form-group">
