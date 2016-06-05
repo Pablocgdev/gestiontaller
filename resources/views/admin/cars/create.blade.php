@@ -23,7 +23,7 @@
 
 		<div class="form-group">
 			{!! Form::label('notes', 'Notas') !!}
-			{!! Form::textarea('notes', null, ['class' => 'form-control', 'placeholder' => 'Notas del vehículo', 'required']) !!}
+			{!! Form::textarea('notes', null, ['class' => 'form-control textarea-content']) !!}
 		</div> 
 
 		<div class="form-group">
@@ -45,6 +45,12 @@
 			{!! Form::submit('Agregar artículo', ['class' => 'btn btn-primary']) !!}
 		</div>
 	{!! Form::close() !!}
+
+	@section('js')
+	
+	<script>
+		$('.textarea-content').trumbowyg();
+	</script>
 
 @endsection
 
