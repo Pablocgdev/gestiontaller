@@ -19,7 +19,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
+
     @if(!Auth::user())
+
     <li><a href="{{ route('admin.auth.login') }}">Login</a></li>
     </ul>
 
