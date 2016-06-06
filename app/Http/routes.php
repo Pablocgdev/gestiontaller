@@ -37,8 +37,15 @@ Route::group(['prefix' => 'admin' , 'middleware' => 'auth'], function() {
 		]);
 
 	Route::resource('cars', 'CarsController');
+
+	Route::get('images',[
+	'uses' => 'ImagesController@index',
+	'as'   => 'admin.images.index'
+	]);
+
 	
 });
+
 
 Route::get('admin/auth/login', [
 	'uses' => 'Auth\AuthController@getLogin',
@@ -54,3 +61,4 @@ Route::get('admin/auth/logout', [
 	'uses' => 'Auth\AuthController@getLogout',
 	'as'   => 'admin.auth.logout'
 	]);
+ 

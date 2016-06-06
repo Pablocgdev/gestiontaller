@@ -19,9 +19,19 @@ class CarsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.cars.index');
+        $cars = Car::Search($request->plate)->orderBy('id', 'DESC')-> paginate(5);
+
+        $cars->each(function($cars){
+            $cars->category;
+            $cars->user;
+        });
+
+        return view('admin.cars.index')
+        ->with('cars', $cars);
+
+      
     }
 
     /**

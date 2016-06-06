@@ -36,4 +36,7 @@ class Car extends Model implements SluggableInterface
     	return $this->belongsToMany('App\Tag');
     }
 
+    public function scopeSearch($query, $plate){
+        return $query->where('plate', 'LIKE', "%$plate");
+    }
 }
